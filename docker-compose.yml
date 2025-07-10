@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  win10:
+    image: ghcr.io/dockur/windows:latest
+    container_name: win10
+    environment:
+      VERSION: "10"
+      USERNAME: "admin"
+      PASSWORD: "admin@123"
+      RAM_SIZE: "4G"
+      CPU_CORES: "4"
+      DISK_SIZE: "100G"
+    ports:
+      - "3389:3389"
+      - "8000:8000"
+      - "8006:8006"
+    devices:
+      - /dev/kvm
+    cap_add:
+      - NET_ADMIN
+    stop_grace_period: 2m
